@@ -59,7 +59,7 @@ export default {
             this.$store.commit('setIsLoading', true)
 
             await axios
-                .get('/api/v1/orders/')
+                .get('http://127.0.0.1:8000/api/v1/orders/')
                 .then(response => {
                     this.orders = response.data
                 })

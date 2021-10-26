@@ -144,7 +144,7 @@ export default {
         this.cart = this.$store.state.cart
 
         if (this.cartTotalLength > 0) {
-            this.stripe = Stripe('pk_test_51H1HiuKBJV2qfWbD2gQe6aqanfw6Eyul5PO2KeOuSRlUMuaV4TxEtaQyzr9DbLITSZweL7XjK3p74swcGYrE2qEX00Hz7GmhMI')
+            this.stripe = Stripe('pk_test_51JnDxpJM3aylIC4xInppLiMhEPa9lseB8jrmSpO1ZVgRMF8FieRH42vZPJTYTUSO0HFbt9ZgoikDJJNvtoPhxBzu00TJPth1lC')
             const elements = this.stripe.elements();
             this.card = elements.create('card', { hidePostalCode: true })
 
@@ -229,7 +229,7 @@ export default {
             }
 
             await axios
-                .post('/api/v1/checkout/', data)
+                .post('http://127.0.0.1:8000/api/v1/checkout/', data)
                 .then(response => {
                     this.$store.commit('clearCart')
                     this.$router.push('/cart/success')
